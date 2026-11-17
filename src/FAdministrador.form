@@ -294,6 +294,17 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BAlimentosActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="BRegresar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BRegresarActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -314,9 +325,11 @@
     <Component class="javax.swing.JComboBox" name="CBPuesto">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Administrador"/>
-            <StringItem index="1" value="Visitante"/>
+          <StringArray count="4">
+            <StringItem index="0" value="cocinero"/>
+            <StringItem index="1" value="mesero"/>
+            <StringItem index="2" value="cajero"/>
+            <StringItem index="3" value="gerente"/>
           </StringArray>
         </Property>
       </Properties>
@@ -365,8 +378,8 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="Activo"/>
-            <StringItem index="1" value="Inactivo"/>
+            <StringItem index="0" value="activo"/>
+            <StringItem index="1" value="inactivo"/>
           </StringArray>
         </Property>
       </Properties>
@@ -386,9 +399,11 @@
     <Component class="javax.swing.JComboBox" name="CBTurno">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Activo"/>
-            <StringItem index="1" value="Inactivo"/>
+          <StringArray count="4">
+            <StringItem index="0" value="matutino"/>
+            <StringItem index="1" value="verpertino"/>
+            <StringItem index="2" value="nocturno"/>
+            <StringItem index="3" value="completo"/>
           </StringArray>
         </Property>
       </Properties>

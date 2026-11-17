@@ -20,7 +20,6 @@ public class FAdministrador extends javax.swing.JFrame {
             System.exit(0);
         }
         
-        initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FONDATEL");
         setResizable(false);
@@ -48,6 +47,7 @@ public class FAdministrador extends javax.swing.JFrame {
         BBuscar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         BAlimentos = new javax.swing.JButton();
+        BRegresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -181,13 +181,24 @@ public class FAdministrador extends javax.swing.JFrame {
         });
         jToolBar1.add(BAlimentos);
 
+        BRegresar.setText("Regresar");
+        BRegresar.setFocusable(false);
+        BRegresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BRegresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BRegresarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(BRegresar);
+
         jLabel2.setText("Puesto :");
 
         jLabel3.setText("NIP :");
 
         jLabel4.setText("Nombre:");
 
-        CBPuesto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Visitante" }));
+        CBPuesto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cocinero", "mesero", "cajero", "gerente" }));
 
         TEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -211,13 +222,13 @@ public class FAdministrador extends javax.swing.JFrame {
 
         jLabel7.setText("Estado:");
 
-        CBEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
+        CBEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "activo", "inactivo" }));
 
         jLabel9.setText("Codigo :");
 
         jLabel10.setText("Turno :");
 
-        CBTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
+        CBTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "matutino", "verpertino", "nocturno", "completo" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -294,7 +305,7 @@ public class FAdministrador extends javax.swing.JFrame {
 
     // Quita comillas y diagonales para que no rompan la consulta
     private String limpiar(String texto) {
-        return texto.replace("", "").replace("", "").trim();
+        return texto.replace("'", "").replace("\\", "").trim();
     }
 
     private void mostrar(String consulta) {
@@ -387,6 +398,12 @@ public class FAdministrador extends javax.swing.JFrame {
         CBEstado.setSelectedItem(valor(f, 6));
     }//GEN-LAST:event_TEmpleadosMouseClicked
 
+    private void BRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRegresarActionPerformed
+        cnx.desconectar();              // cierra la conexión de esta ventana
+    this.dispose();                 // cierra FCocinero / FMesero / FCajero
+    new FAcceso().setVisible(true); // vuelve al login
+    }//GEN-LAST:event_BRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -399,6 +416,7 @@ public class FAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton BBuscar;
     private javax.swing.JButton BModificar;
     private javax.swing.JButton BRegistrar;
+    private javax.swing.JButton BRegresar;
     private javax.swing.JComboBox CBEstado;
     private javax.swing.JComboBox CBPuesto;
     private javax.swing.JComboBox CBTurno;

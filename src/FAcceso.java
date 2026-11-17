@@ -3,14 +3,14 @@ import javax.swing.JOptionPane;
 
 public class FAcceso extends javax.swing.JFrame {
 
-     Conexion cnx = new Conexion();
+    Conexion cnx = new Conexion();
 
     int intentos = 0;
 
     public FAcceso() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FONDATEL");
         setResizable(false);
@@ -142,10 +142,10 @@ public class FAcceso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     private String limpiar(String texto) {
+    private String limpiar(String texto) {
         return texto.replace("'", "").replace("\\", "").trim();
     }
-    
+
     private void BAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAceptarActionPerformed
 
         String usr = limpiar(TUsuario.getText());
@@ -162,19 +162,19 @@ public class FAcceso extends javax.swing.JFrame {
                 fa.setVisible(true);
                 break;
             case "mesero":
-                FMesero fm = new FMesero();
+                FMesero fm = new FMesero(codigo);   // antes: new FMesero();
                 this.dispose();
                 cnx.desconectar();
                 fm.setVisible(true);
                 break;
             case "cajero":
-                FCajero fc = new FCajero();
+                FCajero fc = new FCajero(codigo);   // antes: new FCajero();
                 this.dispose();
                 cnx.desconectar();
                 fc.setVisible(true);
                 break;
             case "cocinero":
-                FCocinero fk = new FCocinero();
+                FCocinero fk = new FCocinero(codigo);   // antes: new FCocinero();
                 this.dispose();
                 cnx.desconectar();
                 fk.setVisible(true);
@@ -193,9 +193,9 @@ public class FAcceso extends javax.swing.JFrame {
     }//GEN-LAST:event_BAceptarActionPerformed
 
     private void BCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCancelarActionPerformed
-        
+
         System.exit(0);
-        
+
     }//GEN-LAST:event_BCancelarActionPerformed
 
     /**

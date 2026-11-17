@@ -143,6 +143,23 @@ public class Conexion {
         }
     }
 
+    // Ajusta el ancho de cada columna al contenido (encabezado o dato mas largo)
+    public static void ajustarColumnas(JTable tabla) {
+        tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        for (int c = 0; c < tabla.getColumnCount(); c++) {
+            TableColumn columna = tabla.getColumnModel().getColumn(c);
+            Component encabezado = tabla.getTableHeader().getDefaultRenderer()
+                    .getTableCellRendererComponent(tabla, columna.getHeaderValue(), false, false, -1, c);
+            int ancho = encabezado.getPreferredSize().width;
+            for (int r = 0; r < tabla.getRowCount(); r++) {
+                Component celda = tabla.prepareRenderer(tabla.getCellRenderer(r, c), r, c);
+                ancho = Math.max(ancho, celda.getPreferredSize().width);
+            }
+            columna.setPreferredWidth(ancho + 16);
+            columna.setWidth(ancho + 16);
+        }
+    }
+
     public String obtenerDato(String consulta) {
         String resultado = "";
         try {
